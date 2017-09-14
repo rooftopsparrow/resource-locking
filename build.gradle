@@ -16,6 +16,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 javadoc {
     options.author = true
     options.version = true
