@@ -12,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    // See issue #11. This is here when we need it
+    // compile fileTree(dir: 'lib', include: ['*.jar'])
     // Use JUnit test framework
     testCompile 'junit:junit:4.12'
 }
