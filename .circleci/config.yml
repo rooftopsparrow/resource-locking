@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/openjdk:8-jdk
 
@@ -34,11 +34,12 @@ jobs:
 
       # run tests!
       - run: gradle test
+      # Upload coverage report
+      - run: gradle jacocoTestReport
+      - run: bash <(curl -s https://codecov.io/bash)
 
+      # capture test results
       - store_test_results:
           path: build/test-results
 
-    # create a coverage report
-    post:
-        - gradle jacocoTestReport
-        - bash <(curl -s https://codecov.io/bash)
+
