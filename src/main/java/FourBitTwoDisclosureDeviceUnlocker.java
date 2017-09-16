@@ -24,20 +24,30 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
         boolean forSpin;
         CharSequence forPeek = "??--";
         CharSequence forPoke = "TT--";
-
+        // Reset the trace
+        FourBitTwoDisclosureDeviceUnlocker.log(null);
+        // We're staring the unlock
+        FourBitTwoDisclosureDeviceUnlocker.log("Unlock start");
         for(int i=0; i <= 100; i++) {
             forSpin = dev.spin();
 
-            if (forSpin)
+            if (forSpin) {
+                FourBitTwoDisclosureDeviceUnlocker.log("Spin: unlocked");
+                FourBitTwoDisclosureDeviceUnlocker.log("Unlock SUCCESS");
                 return true;
+            }
 
+            FourBitTwoDisclosureDeviceUnlocker.log("Spin: locked");
+
+            FourBitTwoDisclosureDeviceUnlocker.log("Peek pattern: " + forPeek.toString());
             CharSequence p = dev.peek(forPeek);
-
-            System.out.println(i + p.toString());
-
+            FourBitTwoDisclosureDeviceUnlocker.log("Peek result: " + p.toString());
+            FourBitTwoDisclosureDeviceUnlocker.log("Poke: " + forPoke.toString());
             dev.poke(forPoke);
+            FourBitTwoDisclosureDeviceUnlocker.log(dev.toString());
 
         }
+        FourBitTwoDisclosureDeviceUnlocker.log("Unlock FAILED");
         return false;
     }
 
