@@ -7,7 +7,7 @@
  * @author Heather DeMarco
  */
 
-public class FourBitTwoDisclosureDeviceUnlocker {
+public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
     public static void main(String[] args) {
         Device dev = new Device(4, 2);
 
