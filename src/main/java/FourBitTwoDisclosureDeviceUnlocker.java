@@ -9,10 +9,13 @@
 
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
     /**
-     *Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is unspecified if parameter is not a reference to a valid 4-bit/2-disclosure device.
+     * Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is
+     * unspecified if parameter is not a reference to a valid 4-bit/2-disclosure device.
      *
-     * @param  dev - the device controlling the resource to unlock; must be a 4-bit device with 2 peek/poke bits.
-     * @return  true if the resource is successfully unlocked (all bits are now identical); false otherwise
+     * @param  dev - the device controlling the resource to unlock;
+     * must be a 4-bit device with 2 peek/poke bits.
+     * @return  true if the resource is successfully unlocked (all bits are now identical);
+     * false otherwise
      */
     public static boolean unlock(Device dev){
         //Set up variables
@@ -28,7 +31,7 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
         FourBitTwoDisclosureDeviceUnlocker.log("Unlock start");
 
         //The loop is set to run 100 times before halting.
-        for(int i=0; i <= 100; i++) {
+        for (int i = 0; i <= 100; i++) {
             forSpin = dev.spin();
 
             //If true, loop is exited

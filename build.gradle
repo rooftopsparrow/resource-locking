@@ -1,7 +1,6 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'jacoco'
-// We might want checkstyle, but not super early as its a barrier to getting started
 apply plugin: 'checkstyle'
 
 // In this section you declare where to find the dependencies of your project
