@@ -2,12 +2,26 @@
 /**
  * Solution development for 4-bit/2-disclosure device.
  *
- * @version 4.1.5
- * @author Dr. Jody Paul
- * @author Heather DeMarco
+ * @version API: 4.1.4
+ * <br>
+ * Source code: 4.1.7
+ * @author Dr. Jody Paul: API specification, 
+ * <br>
+ *  Heather DeMarco, Jonathan Grant: Source code matching API
+ *  
+ * @see <a href = "http://jodypaul.com/cs/sweprin/deviceProj/projectDescription.html"> Project Description </a>
+ * 
  */
 
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
+	
+	/*
+	 * Suppress Instantiation of objects from this utility class
+	 */
+	private FourBitTwoDisclosureDeviceUnlocker() {
+		
+	}
+	
     /**
      *Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is unspecified if parameter is not a reference to a valid 4-bit/2-disclosure device.
      *
