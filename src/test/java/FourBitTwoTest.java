@@ -59,4 +59,14 @@ public class FourBitTwoTest {
     System.out.println("TRACE:\n" + trace);
   }
 
+  @Test public void testItFailsWithFiveTwo(){
+    boolean[] init = {false, true, false, true, false};
+    Device d = FourBitTwoTest.buildDevice(init, 2);
+    assertFalse(FourBitTwoDisclosureDeviceUnlocker.unlock(d));
+    String trace = FourBitTwoDisclosureDeviceUnlocker.showTrace();
+    assertThat(trace, containsString("FAILED"));
+    System.out.println("TRACE:\n" + trace);
+  }
+
+
 }

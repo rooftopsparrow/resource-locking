@@ -8,12 +8,6 @@
  */
 
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
-    public static void main(String[] args) {
-        Device dev = new Device(4, 2);
-
-        boolean f = unlock(dev);
-        System.out.println(f);
-    }
     /**
      *Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is unspecified if parameter is not a reference to a valid 4-bit/2-disclosure device.
      *
@@ -21,16 +15,23 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
      * @return  true if the resource is successfully unlocked (all bits are now identical); false otherwise
      */
     public static boolean unlock(Device dev){
+        //Set up variables
         boolean forSpin;
         CharSequence forPeek = "??--";
         CharSequence forPoke = "TT--";
+        CharSequence fromPeek;
+
         // Reset the trace
         FourBitTwoDisclosureDeviceUnlocker.log(null);
+
         // We're staring the unlock
         FourBitTwoDisclosureDeviceUnlocker.log("Unlock start");
+
+        //The loop is set to run 100 times before halting.
         for(int i=0; i <= 100; i++) {
             forSpin = dev.spin();
 
+            //If true, loop is exited
             if (forSpin) {
                 FourBitTwoDisclosureDeviceUnlocker.log("Spin: unlocked");
                 FourBitTwoDisclosureDeviceUnlocker.log("Unlock SUCCESS");
@@ -38,12 +39,14 @@ public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
             }
 
             FourBitTwoDisclosureDeviceUnlocker.log("Spin: locked");
-
             FourBitTwoDisclosureDeviceUnlocker.log("Peek pattern: " + forPeek.toString());
-            CharSequence p = dev.peek(forPeek);
-            FourBitTwoDisclosureDeviceUnlocker.log("Peek result: " + p.toString());
+
+            fromPeek = dev.peek(forPeek);
+            FourBitTwoDisclosureDeviceUnlocker.log("Peek result: " + fromPeek.toString());
+
             FourBitTwoDisclosureDeviceUnlocker.log("Poke: " + forPoke.toString());
             dev.poke(forPoke);
+
             FourBitTwoDisclosureDeviceUnlocker.log(dev.toString());
 
         }
