@@ -8,6 +8,15 @@
  */
 
 public class FourBitTwoDisclosureDeviceUnlocker extends DeviceUnlocker {
+	
+	/*
+	 * Suppress Instantiation of objects from this utility class
+	 */
+	private FourBitTwoDisclosureDeviceUnlocker() {
+		
+	}
+	
+	
     /**
      *Unlocks a resource controlled by a 4-bit/2-disclosure device. Behavior is unspecified if parameter is not a reference to a valid 4-bit/2-disclosure device.
      *
